@@ -3,12 +3,23 @@
 class mainState extends Phaser.State {
     game: Phaser.Game;
 
+
     preload():void {
-        super.preload();
+        super.preload()
+        // carregar la foto
+        this.game.load.image('player', 'assets/player.png');
+        this.game.physics.startSystem(Phaser.Physics.ARCADE)
     }
 
     create():void {
         super.create();
+
+        //canviar el color fons de pantalla
+        this.game.stage.backgroundColor = "#4488AA";
+        //afegir el monigote
+        var player = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'player');
+        player.anchor.set(0.5);
+        player.tint = 0xff00ff;
     }
 
     update():void {

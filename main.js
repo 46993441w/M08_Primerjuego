@@ -11,9 +11,18 @@ var mainState = (function (_super) {
     }
     mainState.prototype.preload = function () {
         _super.prototype.preload.call(this);
+        // carregar la foto
+        this.game.load.image('player', 'assets/player.png');
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
     };
     mainState.prototype.create = function () {
         _super.prototype.create.call(this);
+        //canviar el color fons de pantalla
+        this.game.stage.backgroundColor = "#4488AA";
+        //afegir el monigote
+        var player = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'player');
+        player.anchor.set(0.5);
+        player.tint = 0xff00ff;
     };
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
